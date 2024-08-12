@@ -1,0 +1,23 @@
+const express = require("express");
+const app = express();
+const mongoose = require('mongoose');
+const productRoutes = require('./routes/productRoute')
+const userRoutes = require('./routes/userRoute')
+const cartRoutes =require('./routes/cartRoute')
+const orderRoutes = require('./routes/orderRoute');
+
+app.use(express.json());
+
+mongoose.connect(
+    'mongodb://localhost:27017/e-commerce'
+).then(()=>console.log("MongoDB connected")
+).catch(()=>console.log("MongoDB connection Failed"))
+
+app.use('/products',productRoutes);
+app.use('/user',userRoutes);
+app.use('/cart',cartRoutes);
+app.use('/order',orderRoutes);
+
+app.listen(3000,()=>{
+    console.log("server is running on port 3000");
+})
