@@ -2,7 +2,6 @@ const Product = require("../modals/productModal")
 const {v4:  uuidv4} = require('uuid')
 exports.getproducts = async (req,res)=>{
     try{
-        console.log(req.user);
         const products = await Product.find();
         res.send(products);
     }
