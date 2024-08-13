@@ -10,7 +10,8 @@ const cors = require('cors')
 app.use(express.json());
 app.use(cors());
 mongoose.connect(
-    'mongodb://localhost:27017/e-commerce'
+    // 'mongodb://localhost:27017/e-commerce'
+    'mongodb+srv://ksrohit25:ZqueG2A4I3eYg6HU@cluster0.rq5ngav.mongodb.net/e-commerce'
 ).then(()=>console.log("MongoDB connected")
 ).catch(()=>console.log("MongoDB connection Failed"))
 
